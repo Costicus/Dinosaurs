@@ -26,4 +26,14 @@ Park.prototype.findHighestVisitors = function() {
     return highestDinosaur
 }
 
+Park.prototype.ShowAllSpecies = function(species) {
+    list = []
+    for (const dinosaur of this.dinosaurs) {
+        if (dinosaur.species === species) {
+            list.push(dinosaur)
+        }
+    }
+    return list
+}
+
 module.exports = Park;
