@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "five": "^0.8.0"
+  },
+  "name": "04_hw_tdd_jurrasic_park",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
