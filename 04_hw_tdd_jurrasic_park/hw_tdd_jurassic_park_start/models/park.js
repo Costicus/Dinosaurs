@@ -36,4 +36,31 @@ Park.prototype.ShowAllSpecies = function(species) {
     return list
 }
 
+Park.prototype.calculateDailyVisitors = function() {
+    total = 0
+    for (const dinosaur of this.dinosaurs) {
+        total += dinosaur.guestsAttractedPerDay
+    }
+    return total
+}
+
+Park.prototype.calculateYearlyVisitors = function() {
+    dailyVisitors = park.calculateDailyVisitors()
+    return dailyVisitors * 365
+}
+
+Park.prototype.calculateYearlyRevenue = function() {
+    yearlyVisitors = park.calculateYearlyVisitors()
+    return yearlyVisitors * this.ticketPrice
+}
+
+Park.prototype.removeBySpecies = function(species) {
+    for (let i = this.dinosaurs.length - 1; i >= 0; i--) {
+        if (this.dinosaurs[i].species === species) {
+            this.dinosaurs.splice(i, 1)
+        }
+    }
+    return this.dinosaurs
+}
+
 module.exports = Park;

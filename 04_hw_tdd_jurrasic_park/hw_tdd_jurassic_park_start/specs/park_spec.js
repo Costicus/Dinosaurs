@@ -57,10 +57,38 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dinosaur, dinosaur2])
   });
 
-  it('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function() {
+    park.addDinosaur(dinosaur)
+    park.addDinosaur(dinosaur2)
+    park.addDinosaur(dinosaur3)
+    const actual = park.calculateDailyVisitors()
+    assert.strictEqual(actual, 240)
+  });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function() {
+    park.addDinosaur(dinosaur)
+    park.addDinosaur(dinosaur2)
+    park.addDinosaur(dinosaur3)
+    const actual = park.calculateYearlyVisitors()
+    assert.strictEqual(actual, 87600)
+  });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function() {
+    park.addDinosaur(dinosaur)
+    park.addDinosaur(dinosaur2)
+    park.addDinosaur(dinosaur3)
+    const actual = park.calculateYearlyRevenue()
+    assert.strictEqual(actual, 876000)
+  });
+
+  // - Remove all dinosaurs of a particular species
+  it('should be able to remove all dinosaurs of a particular species', function() {
+    park.addDinosaur(dinosaur)
+    park.addDinosaur(dinosaur2)
+    park.addDinosaur(dinosaur3)
+    expected = [dinosaur3]
+    actual = park.removeBySpecies("Diplodoc")
+    assert.deepStrictEqual(actual, expected)
+  })
 
 });
